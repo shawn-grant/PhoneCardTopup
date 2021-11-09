@@ -260,8 +260,11 @@ public class GUI extends Application {
         submitButton.setId("submit");
         submitButton.setOnAction(e->{
             Customer newCustomer = new Customer(trnInput.getText(), lnameInput.getText(),
-                                        addressInput.getText(), phoneInput.getText());
-            currentProvider.addCustomer(newCustomer);
+                    addressInput.getText(), phoneInput.getText());
+            //return to menu if successfully added
+            if (currentProvider.addCustomer(newCustomer) == 1) {
+                adminMenu();
+            }
         });
 
         Button cancel = new Button("<- Cancel");
@@ -460,7 +463,7 @@ public class GUI extends Application {
         layout.setAlignment(Pos.CENTER);
         header.setAlignment(Pos.CENTER);
 
-        ImageView image = new ImageView(getClass().getResource("/people.png").toExternalForm());
+        ImageView image = new ImageView(getClass().getResource("/view.png").toExternalForm());
         image.setFitWidth(30);
         image.setFitHeight(20);
         Label title = new Label("Company Info");
@@ -471,7 +474,7 @@ public class GUI extends Application {
         if (currentProvider instanceof Digicel)
             info += "\n" + ((Digicel) currentProvider).getNumBranches() + " Branches \n";
         else
-            info += "\nOwned By" + ((Flow) currentProvider).getParentName();
+            info += "\nOwned By " + ((Flow) currentProvider).getParentName();
 
         Label infoLabel = new Label(info);
         infoLabel.setId("info");

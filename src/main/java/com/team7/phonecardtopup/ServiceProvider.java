@@ -45,7 +45,7 @@ public class ServiceProvider{
 
 
 	/* add customer to the company file */
-	public void addCustomer(Customer newCustomer) {
+	public int addCustomer(Customer newCustomer) {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle("INVALID INPUT");
 		alert.setGraphic(null);
@@ -56,7 +56,7 @@ public class ServiceProvider{
 			// show error
 			alert.setContentText("TRN must be 9 Digits long");
 			alert.showAndWait();
-			return;
+			return 0;
 		}
 		// ensure TRN is all numbers
 		try {
@@ -64,23 +64,23 @@ public class ServiceProvider{
 		} catch (NumberFormatException nfe) {
 			alert.setContentText("TRN must be numbers ONLY. \n eg: 102307207");
 			alert.showAndWait();
-			return;
+			return 0;
 		}
 		
 		if (newCustomer.getLastName().length() < 3) {
 			alert.setContentText("Last Name must be atleast 3 characters long");
 			alert.showAndWait();
-			return;
+			return 0;
 		}
 
 		if (newCustomer.getAddress().length() < 5) {
 			alert.setContentText("Address must be atleast 5 characters long");
 			alert.showAndWait();
-			return;
+			return 0;
 		}
 
 		if (!isValidPhoneNumber(newCustomer.getTelNumber()))
-			return;
+			return 0;
 
 		if (this instanceof Digicel)
 			filename = "Digicel_Customers.txt";
@@ -109,11 +109,14 @@ public class ServiceProvider{
 			alert.setTitle("Saved Successfully");
 			alert.setContentText("Customer added to file");
 			alert.showAndWait();
+			return 1;
 		} 
 		catch (IOException e) {
 			e.printStackTrace();
 			alert.setContentText("Could not add customer to file");
 			alert.showAndWait();
+
+			return 0;
 		}
 	}
 
