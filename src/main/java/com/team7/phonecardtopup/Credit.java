@@ -105,7 +105,7 @@ public class Credit{
 		String newData = "";
 		// update the balance
 		for(int i = 0; i < credits.size(); i++){
-			Credit c = credits.get(i);
+			Credit c = credits.get(i); 
 
 			newData += c.getCardNumber() + "\t" + c.getAmount() + "\t" + c.getStatus() + "\n";
 		}

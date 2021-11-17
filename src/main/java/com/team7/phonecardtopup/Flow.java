@@ -68,7 +68,6 @@ public class Flow extends ServiceProvider{
 		// child specific info           :
 		System.out.println("Parent Company: " + parentName);
 		System.out.println("-----------------------------\n");
-
 	}
 
 	public String getParentName() {

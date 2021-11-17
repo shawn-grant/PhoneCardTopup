@@ -86,7 +86,7 @@ public class GUI extends Application {
                 chooseSection();
                 mainWindow.show();
             }
-         });
+        });
         new Thread(sleeper).start(); //start the above task
     }
 
@@ -307,7 +307,7 @@ public class GUI extends Application {
         if (list.size() == 0)
             scrollPane.setContent(new Label("No Customers Added Yet"));
         else {
-            // add each customer to the content of the scrolllpane
+            // add each customer to the content of the scrollpane
             list.forEach(c -> {
                 content.getChildren().add(
                     new Label(

@@ -67,7 +67,6 @@ public class Digicel extends ServiceProvider{
 		// display child specific info
 		System.out.println("# of Branches: " + numBranches);
 		System.out.println("-----------------------------\n");
-
 	}
 
 	public int getNumBranches() {

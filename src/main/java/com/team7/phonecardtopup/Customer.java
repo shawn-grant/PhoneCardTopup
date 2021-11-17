@@ -121,7 +121,7 @@ public class Customer{
 
 		//get the phone and card number
 		// asterisk is a special character in split() and needs to be escaped to avoid a PatternSyntaxException
-		if(credCode.split("\\*").length == 4){ //4 segments should be returned if the format is valid
+		if (credCode.split("\\*").length == 4) { //4 segments should be returned if the format is valid
 			cardNumber = credCode.split("\\*")[2];
 			phoneNumber = credCode.split("\\*")[3].replace("#", ""); //remove the #
 		}

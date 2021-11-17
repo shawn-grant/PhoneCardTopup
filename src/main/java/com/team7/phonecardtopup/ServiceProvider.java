@@ -93,7 +93,7 @@ public class ServiceProvider{
 			customerFile.createNewFile(); //create file if it doesnt exist
 
 			// append using fIleWriter: true means append, false is overwrite
-			FileWriter myWriter = new FileWriter(filename, true);
+			FileWriter myWriter = new FileWriter(customerFile, true);
 			myWriter.write(newCustomer.getTrn() + 
 						"\t" + newCustomer.getLastName() + 
 						"\t" + newCustomer.getAddress() + 
@@ -102,7 +102,7 @@ public class ServiceProvider{
 			myWriter.close(); //close the file
 
 			//increase numCustomers
-			numCustomers ++;
+			numCustomers++;
 			customers.add(newCustomer);
 			//feedback
 			alert.setAlertType(AlertType.INFORMATION);
@@ -252,7 +252,7 @@ public class ServiceProvider{
 		return list;
 	}
 
-	/*displays the total number of customers*/
+	/*the total number of customers*/
 	public int getNumCustomers(){
 		return numCustomers;
 	}
